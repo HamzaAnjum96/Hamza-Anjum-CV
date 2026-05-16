@@ -214,6 +214,7 @@ a:hover { color: var(--accent); }
   border: 1px solid var(--border);
   background: #fff;
   flex-shrink: 0;
+  padding: 2px;
 }
 
 .exp-titles {
@@ -351,6 +352,7 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   background: #fff;
   flex-shrink: 0;
   margin-top: 1px;
+  padding: 1px;
 }
 
 .other-detail {
