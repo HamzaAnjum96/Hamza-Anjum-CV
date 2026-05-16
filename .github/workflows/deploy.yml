@@ -5,47 +5,21 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  # Job 1: runs without environment restriction — adds main to the
-  # github-pages environment's allowed deployment branches via the API.
-  allow-main:
-    runs-on: ubuntu-latest
-    permissions:
-      administration: write
-    steps:
-      - name: Allow main branch in github-pages environment
-        env:
-          REPO: ${{ github.repository }}
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Switch to custom branch policy (away from "protected branches only")
-          curl -f -s -X PUT \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/$REPO/environments/github-pages" \
-            -d '{"deployment_branch_policy":{"protected_branches":false,"custom_branch_policies":true}}'
-
-          # Add main as an explicitly allowed branch (ignore 422 if already added)
-          curl -s -X POST \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/$REPO/environments/github-pages/deployment-branch-policies" \
-            -d '{"name":"main"}'
-
-  # Job 2: standard GitHub Pages deploy — runs after allow-main completes.
   deploy:
-    needs: allow-main
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    concurrency:
-      group: pages
-      cancel-in-progress: false
     steps:
       - name: Checkout
         uses: actions/checkout@v4
