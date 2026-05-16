@@ -5,47 +5,29 @@ on:
     branches: [main]
   workflow_dispatch:
 
-jobs:
-  # Runs without environment restriction — removes the branch policy on
-  # github-pages so the deploy job can run from main.
-  unlock:
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-    steps:
-      - name: Open github-pages environment to all branches
-        run: |
-          curl -s -o /dev/null -w "%{http_code}" -X PUT \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/environments/github-pages" \
-            -d '{"deployment_branch_policy":null}'
+permissions:
+  contents: write
 
+jobs:
   deploy:
-    needs: unlock
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    concurrency:
-      group: pages
-      cancel-in-progress: false
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Push to gh-pages
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
+          mkdir /tmp/site
+          cp index.html style.css .nojekyll /tmp/site/
+          cp -r assets /tmp/site/
 
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+          cd /tmp/site
+          git init -b gh-pages
+          git add -A
+          git commit -m "Deploy CV [skip ci]"
+          git push --force \
+            "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/HamzaAnjum96/Hamza-Anjum-CV.git" \
+            gh-pages
