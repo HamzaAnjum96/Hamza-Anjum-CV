@@ -15,10 +15,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          publish_branch: gh-pages
-          exclude_assets: '.github,.git,.agents,PRODUCT.md,DESIGN.md,skills-lock.json'
+      - name: Publish to gh-pages
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+          # Stage only the deployable files into a clean temp dir
+          mkdir -p /tmp/deploy
+          cp index.html style.css .nojekyll /tmp/deploy/
+          cp -r assets /tmp/deploy/
+
+          cd /tmp/deploy
+          git init -b gh-pages
+          git add -A
+          git commit -m "Deploy CV [skip ci]"
+          git push --force \
+            "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/HamzaAnjum96/Hamza-Anjum-CV.git" \
+            gh-pages
