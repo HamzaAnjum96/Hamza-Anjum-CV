@@ -2,38 +2,24 @@ name: Deploy CV to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [claude/design-cv-layout-ADcgo]
   workflow_dispatch:
 
-jobs:
-  # Runs without environment restriction — removes the branch policy on
-  # github-pages so the deploy job can run from main.
-  unlock:
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-    steps:
-      - name: Open github-pages environment to all branches
-        run: |
-          curl -s -o /dev/null -w "%{http_code}" -X PUT \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/environments/github-pages" \
-            -d '{"deployment_branch_policy":null}'
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
   deploy:
-    needs: unlock
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    concurrency:
-      group: pages
-      cancel-in-progress: false
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -48,4 +34,4 @@ jobs:
 
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
