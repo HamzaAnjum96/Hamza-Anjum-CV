@@ -214,8 +214,10 @@ a:hover { color: var(--accent); }
   border: 1px solid var(--border);
   background: #fff;
   flex-shrink: 0;
-  padding: 2px;
+  padding: 4px;
 }
+.company-logo[src*="logo-venture"],
+.company-logo[src*="logo-jd-sports"] { padding: 0; }
 
 .exp-titles {
   display: flex;
@@ -352,8 +354,9 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   background: #fff;
   flex-shrink: 0;
   margin-top: 1px;
-  padding: 1px;
+  padding: 2px;
 }
+.company-logo-sm[src*="logo-jd-sports"] { padding: 0; }
 
 .other-detail {
   display: flex;
