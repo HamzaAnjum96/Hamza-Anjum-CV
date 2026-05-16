@@ -276,6 +276,26 @@ a:hover { color: var(--accent); }
 /* ─── Sidebar ─── */
 .sidebar { padding-top: 0; }
 
+/* Sidebar overrides for narrow column */
+.sidebar .company-loc {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+.sidebar .exp-header {
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.sidebar .job-title {
+  font-size: var(--sz-small);
+}
+.sidebar .exp-bullets {
+  padding-left: 20px;
+}
+.sidebar .exp-bullets li::before {
+  left: -13px;
+}
+
 /* Certifications */
 .cert-list {
   list-style: none;
