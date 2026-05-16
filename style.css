@@ -306,6 +306,7 @@ a:hover { color: var(--accent); }
   color: var(--text);
   line-height: 1.45;
 }
+a.cert-name:hover { color: var(--accent); text-decoration: underline; }
 
 /* Stack chips */
 .skills-wrap {
