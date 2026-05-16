@@ -261,7 +261,7 @@ a:hover { color: var(--accent); }
 .exp-bullets li:last-child { margin-bottom: 0; }
 
 .exp-bullets li::before {
-  content: '\203A';
+  content: '›';
   position: absolute;
   left: -16px;
   color: var(--accent);
