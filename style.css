@@ -184,6 +184,8 @@ a:hover { color: var(--accent); }
   margin-bottom: var(--gap-entry);
   padding-bottom: var(--gap-entry);
   border-bottom: 1px solid var(--border-subtle);
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 .exp-entry:last-child {
   border-bottom: none;
@@ -236,9 +238,6 @@ a:hover { color: var(--accent); }
 .company-loc {
   font-size: var(--sz-small);
   color: var(--muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .exp-dates {
@@ -273,15 +272,17 @@ a:hover { color: var(--accent); }
   line-height: 1.4;
 }
 
+/* ─── Full-width page 2 experience section ─── */
+.exp-full-page {
+  margin-top: var(--gap-section);
+  break-before: page;
+  page-break-before: always;
+}
+
 /* ─── Sidebar ─── */
 .sidebar { padding-top: 0; }
 
 /* Sidebar overrides for narrow column */
-.sidebar .company-loc {
-  white-space: normal;
-  overflow: visible;
-  text-overflow: unset;
-}
 .sidebar .exp-header {
   flex-wrap: wrap;
   gap: 4px;
