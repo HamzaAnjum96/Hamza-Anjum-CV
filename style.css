@@ -352,6 +352,21 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   white-space: nowrap;
 }
 
+/* Categorised skill groups */
+.skill-group {
+  margin-bottom: 12px;
+}
+.skill-group:last-child { margin-bottom: 0; }
+
+.skill-group-label {
+  font-size: var(--sz-badge);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
 /* Other Employment in sidebar */
 .other-grid {
   display: flex;
