@@ -209,14 +209,14 @@ a:hover { color: var(--accent); }
 }
 
 .company-logo {
-  width: 36px;
-  height: 36px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   object-fit: contain;
   border: 1px solid var(--border);
   background: #fff;
   flex-shrink: 0;
-  padding: 5px;
+  padding: 10px;
 }
 .company-logo[src*="logo-venture"],
 .company-logo[src*="logo-jd-sports"] { padding: 0; }
@@ -312,8 +312,8 @@ a:hover { color: var(--accent); }
 }
 
 .cert-badge {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   flex-shrink: 0;
   display: block;
@@ -366,15 +366,15 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
 }
 
 .company-logo-sm {
-  width: 28px;
-  height: 28px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   object-fit: contain;
   border: 1px solid var(--border);
   background: #fff;
   flex-shrink: 0;
   margin-top: 1px;
-  padding: 4px;
+  padding: 8px;
 }
 .company-logo-sm[src*="logo-jd-sports"] { padding: 0; }
 
@@ -401,16 +401,18 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   position: fixed;
   top: 16px;
   right: 16px;
-  font-family: var(--font);
-  font-size: var(--sz-small);
-  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  line-height: 1;
   color: var(--accent);
   background: var(--accent-dim);
   border: 1px solid var(--accent-border);
-  border-radius: 4px;
-  padding: 6px 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  letter-spacing: 0.3px;
   z-index: 100;
 }
 .print-btn:hover {
@@ -424,20 +426,20 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
 
   @page {
     size: A4;
-    margin: 16mm 15mm;
+    margin: 0;
   }
 
   body {
-    background: #F0EDE8;
+    background: var(--surface);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
   .page {
     width: 100%;
-    min-height: auto;
+    min-height: 100vh;
     margin: 0;
-    padding: 0;
+    padding: 16mm 15mm;
     box-shadow: none;
   }
 
@@ -445,6 +447,12 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   .cv-body {
     grid-template-columns: 62% 1fr;
     gap: var(--col-gap);
+  }
+
+  /* Keep section titles with their first item */
+  .section-title {
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
   a { color: inherit; }
