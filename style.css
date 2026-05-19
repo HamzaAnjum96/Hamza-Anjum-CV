@@ -312,17 +312,10 @@ a:hover { color: var(--accent); }
 }
 
 .cert-badge {
-  font-size: var(--sz-badge);
-  font-weight: 700;
-  font-family: var(--font);
-  color: var(--accent);
-  border: 1px solid var(--accent-border);
-  border-radius: 3px;
-  padding: 1px 5px;
-  white-space: nowrap;
-  letter-spacing: 0.4px;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
   flex-shrink: 0;
-  margin-top: 1px;
 }
 
 .cert-name {
@@ -451,7 +444,6 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   a { color: inherit; }
 
   .skill-chip,
-  .cert-badge,
   .section-title,
   .divider,
   .exp-bullets li::before,
