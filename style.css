@@ -12,9 +12,9 @@
   --border-subtle: #E8E4DE;
   --text:          #1C1917;
   --muted:         #78716C;
-  --accent:        #1D4ED8;   /* deep blue — section titles, bullets, badges */
-  --accent-dim:    #DBEAFE;   /* chip background */
-  --accent-border: #3B82F6;   /* chip border */
+  --accent:        #5B8DB8;   /* Venture steel-blue — section titles, bullets, badges */
+  --accent-dim:    #E3EDF5;   /* chip background */
+  --accent-border: #4A7A9C;   /* chip border */
   --rule:          #A8A29E;   /* neutral warm-gray rule */
 
   --page-w:      794px;
@@ -216,6 +216,7 @@ a:hover { color: var(--accent); }
   border: 1px solid var(--border);
   flex-shrink: 0;
   padding: 0;
+  mix-blend-mode: multiply;
 }
 
 .exp-titles {
@@ -426,6 +427,7 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   flex-shrink: 0;
   margin-top: 1px;
   padding: 0;
+  mix-blend-mode: multiply;
 }
 
 .other-detail {
