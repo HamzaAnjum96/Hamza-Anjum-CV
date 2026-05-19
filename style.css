@@ -1,6 +1,6 @@
-/* Hamza Anjum CV — Light mode, amber accent
+/* Hamza Anjum CV — Light mode, blue accent
    Register: brand (design IS the product)
-   Color strategy: Restrained — warm off-white surface, deep amber accent */
+   Color strategy: Restrained — warm off-white surface, deep blue accent */
 
 /* ─── Design tokens ─── */
 :root {
@@ -12,9 +12,9 @@
   --border-subtle: #E8E4DE;
   --text:          #1C1917;
   --muted:         #78716C;
-  --accent:        #92400E;   /* deep amber — section titles, bullets, badges */
-  --accent-dim:    #FEF3C7;   /* chip background */
-  --accent-border: #B45309;   /* chip border */
+  --accent:        #1D4ED8;   /* deep blue — section titles, bullets, badges */
+  --accent-dim:    #DBEAFE;   /* chip background */
+  --accent-border: #3B82F6;   /* chip border */
   --rule:          #A8A29E;   /* neutral warm-gray rule */
 
   --page-w:      794px;
@@ -520,10 +520,11 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
     gap: var(--col-gap);
   }
 
-  /* Pages 2 and 3: strip screen margin-top at print */
+  /* Pages 2 and 3: no screen margin-top; restore top padding at print */
   .exp-page-2,
   .exp-page-3 {
     margin-top: 0;
+    padding-top: 16mm;
   }
 
   /* Keep section titles with their first item */
