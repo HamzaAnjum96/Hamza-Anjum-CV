@@ -2,7 +2,7 @@ name: Deploy CV to GitHub Pages
 
 on:
   push:
-    branches: [claude/design-cv-layout-ADcgo]
+    branches: [pages]
   workflow_dispatch:
 
 permissions:
