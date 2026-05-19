@@ -216,7 +216,6 @@ a:hover { color: var(--accent); }
   border: 1px solid var(--border);
   flex-shrink: 0;
   padding: 0;
-  mix-blend-mode: multiply;
 }
 
 .exp-titles {
@@ -427,7 +426,6 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   flex-shrink: 0;
   margin-top: 1px;
   padding: 0;
-  mix-blend-mode: multiply;
 }
 
 .other-detail {
