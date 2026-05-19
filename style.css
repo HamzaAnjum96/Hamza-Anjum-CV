@@ -316,8 +316,8 @@ a:hover { color: var(--accent); }
 }
 
 .cert-badge {
-  width: 36px;
-  height: 36px;
+  width: 26px;
+  height: 26px;
   object-fit: contain;
   flex-shrink: 0;
   display: block;
@@ -460,28 +460,25 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   color: #fff;
 }
 
+/* ─── Footer ─── */
+.cv-footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font);
+  font-size: 10px;
+  color: var(--muted);
+  padding-top: 10px;
+  margin-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
 /* ─── Print ─── */
 @media print {
   .print-btn { display: none !important; }
 
   @page {
     size: A4;
-    margin: 0 0 10mm 0;
-
-    @bottom-left {
-      content: "Hamza Anjum";
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 7pt;
-      color: #78716C;
-      margin-left: 15mm;
-    }
-    @bottom-right {
-      content: counter(page);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 7pt;
-      color: #78716C;
-      margin-right: 15mm;
-    }
+    margin: 0;
   }
 
   body {
@@ -494,7 +491,7 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
     width: 100%;
     min-height: 100vh;
     margin: 0;
-    padding: 16mm 15mm 10mm;
+    padding: 16mm 15mm 12mm;
     box-shadow: none;
   }
 
@@ -523,6 +520,18 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
     page-break-after: avoid;
   }
 
+  /* Keep whole sections together — no mid-section page breaks */
+  .cv-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Keep each strength label+text together */
+  .strength-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
   /* Keep each job together — no mid-entry page breaks */
   .exp-entry {
     break-inside: avoid;
@@ -538,6 +547,22 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   .ci {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+
+  /* Footer — fixed so it appears on every printed page */
+  .cv-footer {
+    position: fixed;
+    bottom: 4mm;
+    left: 15mm;
+    right: 15mm;
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 7pt;
+    color: #78716C;
+  }
+  .cv-footer span:last-child::after {
+    content: counter(page);
   }
 }
 
