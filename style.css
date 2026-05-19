@@ -495,35 +495,21 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
     box-shadow: none;
   }
 
-  /* Preserve two-column layout in print */
+  /* Both pages: two-column grid */
   .cv-body {
     grid-template-columns: 62% 1fr;
     gap: var(--col-gap);
   }
 
-  /* Page 2: float sidebar so experience goes full-width once sidebar ends */
+  /* Page 2: use grid (same as page 1) — no float hack */
   .exp-full-page {
-    display: block;
-  }
-  .exp-full-page > .sidebar {
-    float: right;
-    width: 36%;
-    margin-left: var(--col-gap);
-  }
-  .exp-full-page > .main-col {
-    overflow: hidden;
+    margin-top: 0;
   }
 
   /* Keep section titles with their first item */
   .section-title {
     break-after: avoid;
     page-break-after: avoid;
-  }
-
-  /* Keep whole sections together — no mid-section page breaks */
-  .cv-section {
-    break-inside: avoid;
-    page-break-inside: avoid;
   }
 
   /* Keep each strength label+text together */
