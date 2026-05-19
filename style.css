@@ -479,17 +479,6 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
   color: #fff;
 }
 
-/* ─── Footer ─── */
-.cv-footer {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font);
-  font-size: 10px;
-  color: var(--muted);
-  padding-top: 10px;
-  margin-top: 16px;
-  border-top: 1px solid var(--border-subtle);
-}
 
 /* ─── Print ─── */
 @media print {
@@ -556,21 +545,7 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
     print-color-adjust: exact;
   }
 
-  /* Footer — fixed so it appears on every printed page */
-  .cv-footer {
-    position: fixed;
-    bottom: 4mm;
-    left: 15mm;
-    right: 15mm;
-    border-top: none;
-    margin-top: 0;
-    padding-top: 0;
-    font-size: 7pt;
-    color: #78716C;
-  }
-  .cv-footer span:last-child::after {
-    content: counter(page);
-  }
+
 }
 
 /* ─── Responsive — screen only, never in print ─── */
