@@ -322,6 +322,18 @@ a:hover { color: var(--accent); }
   gap: 8px;
 }
 
+.cert-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cert-desc {
+  font-size: calc(var(--sz-small) - 1px);
+  color: var(--muted);
+  line-height: 1.4;
+}
+
 .cert-badge {
   width: 26px;
   height: 26px;
