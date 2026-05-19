@@ -276,8 +276,15 @@ a:hover { color: var(--accent); }
   line-height: 1.4;
 }
 
-/* ─── Full-width page 2 experience section ─── */
-.exp-full-page {
+/* ─── Page 2: MMU + Skills/Strengths sidebar ─── */
+.exp-page-2 {
+  margin-top: var(--gap-section);
+  break-before: page;
+  page-break-before: always;
+}
+
+/* ─── Page 3: single-column remaining experience ─── */
+.exp-page-3 {
   margin-top: var(--gap-section);
   break-before: page;
   page-break-before: always;
@@ -501,8 +508,9 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
     gap: var(--col-gap);
   }
 
-  /* Page 2: use grid (same as page 1) — no float hack */
-  .exp-full-page {
+  /* Pages 2 and 3: strip screen margin-top at print */
+  .exp-page-2,
+  .exp-page-3 {
     margin-top: 0;
   }
 
