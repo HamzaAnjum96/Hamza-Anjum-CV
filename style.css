@@ -175,9 +175,10 @@ a:hover { color: var(--accent); }
   margin-bottom: 14px;
 }
 
-/* Education entries — small logos, no dividing line */
+/* Education entries — small logos, no dividing line, bullets indented under heading */
 [aria-labelledby="sec-edu"] .logo-wrap { width: 26px; height: 26px; }
 [aria-labelledby="sec-edu"] .company-logo { width: 20px; height: 20px; }
+[aria-labelledby="sec-edu"] .exp-bullets { padding-left: 36px; }
 [aria-labelledby="sec-edu"] .exp-entry {
   border-bottom: none;
   padding-bottom: 0;
