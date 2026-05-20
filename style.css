@@ -42,6 +42,10 @@
   padding: 0;
 }
 
+html {
+  background: var(--bg);
+}
+
 body {
   font-family: var(--font);
   font-size: var(--sz-body);
@@ -506,7 +510,7 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
     margin: 0;
   }
 
-  body {
+  html, body {
     background: var(--surface);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
