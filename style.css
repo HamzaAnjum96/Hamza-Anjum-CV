@@ -227,6 +227,7 @@ a:hover { color: var(--accent); }
 }
 .company-logo[src*="logo-venture"],
 .company-logo[src*="logo-fdm"] { width: 40px; height: 40px; }
+.company-logo[src*="logo-formus"] { width: 24px; height: 24px; }
 
 .exp-titles {
   display: flex;
