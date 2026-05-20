@@ -171,6 +171,12 @@ a:hover { color: var(--accent); }
   margin-bottom: 14px;
 }
 
+/* Education entries — no dividing line */
+[aria-labelledby="sec-edu"] .exp-entry {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
 /* ─── Profile ─── */
 .profile-text {
   font-size: var(--sz-body);
