@@ -359,6 +359,7 @@ a:hover { color: var(--accent); }
 .cert-code {
   font-weight: 700;
   color: var(--muted);
+  white-space: nowrap;
 }
 
 .cert-name {
