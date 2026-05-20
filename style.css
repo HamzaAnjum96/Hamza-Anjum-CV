@@ -505,8 +505,19 @@ a.cert-name:hover { color: var(--accent); text-decoration: underline; }
 }
 
 
+/* ─── ATS keyword block — invisible on screen, excluded from print ─── */
+.ats-keywords {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 /* ─── Print ─── */
 @media print {
+  .ats-keywords { display: none !important; }
   .print-btn { display: none !important; }
 
   @page {
